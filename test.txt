@@ -1,0 +1,21 @@
+import pandas as pd  
+
+air = pd.read_csv('air.csv')
+print(air, end="\n\n")
+
+air.info()
+
+print(air.isnull().sum(), end="\n\n")
+
+air_d = air.dropna(axis=0)
+print(air_d, end="\n\n")
+
+air_d2 = air.dropna(axis=1)
+print(air_d2, end="\n\n")
+
+air_m1 = air.fillna(0)
+print(air_m1, end="\n\n")
+
+mean = air['PM10'].mean()
+air_m2 = air['PM10'].fillna(mean)
+print(air_m2, end="\n\n")
